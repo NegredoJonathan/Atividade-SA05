@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Editar usuário{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/update/{{user.id}}">
+    {% csrf_token %}
+    <div class="container">
+        <div class="col-12">
+            <h3>Editar Usuário</h3>
+        </div>
+        <div class="mb-3">
+            <label>ID:</label>
+            <input type="text" class="form-control" name="id" id="id_id" required maxlength="20" value="{{ user.id }}"/>
+        </div> 
+        <div class="mb-3">
+            <label>NOME:</label>
+            <input type="text" class="form-control" name="name" id="id_name" required maxlength="20" value="{{ user.name }}"/>
+        </div> 
+        <div class="mb-3">
+            <label>Nascimento:</label>
+            <input type="text" class="form-control" name="nascimento" id="id_nascimento" required maxlength="20" value="{{ user.nascimento }}"/>
+        </div>
+        <div class="mb-3">
+            <label>E-mail:</label>
+            <input type="email" class="form-control" name="email" id="id_email" required maxlength="20" value="{{ user.email }}"/>
+        </div>
+        <div class="mb-3">
+            <label>País</label>
+            <input type="text" class="form-control" name="countryToWork" id="id_countryToWork" required maxlength="20" value="{{ user.countryToWork }}"/>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success btn-lg">Atualizar</button>
+        </div>
+    </div>       
+    </form>
+{% endblock content %}

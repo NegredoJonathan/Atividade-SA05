@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Adicionar Usuário{% endblock title %}
+
+{% block content %}
+<div class="col-md-12">
+    <form method="POST" class="post-form" action="/addnew">
+    {% csrf_token %}
+    <div class="container">
+        <div class="col-12">
+        <h3>Adicionar Usuario</h3>
+        </div>
+        
+        <div class="mb-3">
+            <label>Nome:</label>
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            <label>Nascimento:</label>
+            {{ form.nascimento }}
+        </div>
+        <div class="mb-3">
+        <label>E-mail:</label>
+            {{ form.email }}
+        </div>
+        <div class="mb-3">
+            <label>País:</label>
+                {{ form.countryToWork }}
+            </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>        
+    </form>
+    
+</div>
+{% endblock content %}
